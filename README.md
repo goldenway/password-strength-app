@@ -26,9 +26,20 @@ An application for testing password strength.
 
 ## Screenshots
 
-![Screenshot of easy password](/src/assets/screen_easy.png)
-![Screenshot of medium password](/src/assets/screen_medium.png)
-![Screenshot of strong password](/src/assets/screen_strong.png)
+Empty password:
+<img src="/src/assets/screen_empty.png" alt="screenshot of empty password" width="300"/>
+
+Short password:
+<img src="/src/assets/screen_short.png" alt="screenshot of short password" width="300"/>
+
+Easy password:
+<img src="/src/assets/screen_easy.png" alt="screenshot of easy password" width="300"/>
+
+Medium password:
+<img src="/src/assets/screen_medium.png" alt="screenshot of medium password" width="300"/>
+
+Strong password:
+<img src="/src/assets/screen_strong.png" alt="screenshot of strong password" width="300"/>
 
 ## Additional Resources
 
