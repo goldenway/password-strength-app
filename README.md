@@ -7,15 +7,15 @@ An application for testing password strength.
 - The application contains a field for entering a password. Under the field are placed 3 sections that show the strength of the password;
 - Changes in password strength take place in real time;
 - How the strength of a password is calculated:
-  1. Only letters / digits / symbols - the password is easy;
-  2. Combination of letters-symbols / letters-digits / digits-symbols - the password is medium;
-  3. Has letters, symbols, and numbers - the password is strong;
+  - Only letters / digits / symbols - the password is easy;
+  - Combination of letters-symbols / letters-digits / digits-symbols - the password is medium;
+  - Has letters, symbols, and numbers - the password is strong;
 - The color of the sections depends on the strength of the password:
-  1. If the field is empty - all sections are gray;
-  2. If the field has less than 8 characters - all sections are red;
-  3. If the password is easy - the first section is red, the rest are gray;
-  4. If the password is medium - the first two sections are yellow, the last one is gray;
-  5. If the password is strong - all sections are green.
+  - If the field is empty - all sections are gray;
+  - If the field has less than 8 characters - all sections are red;
+  - If the password is easy - the first section is red, the rest are gray;
+  - If the password is medium - the first two sections are yellow, the last one is gray;
+  - If the password is strong - all sections are green.
 
 ## Getting Started
 
@@ -23,6 +23,12 @@ An application for testing password strength.
 2. Install dependencies with `npm install`.
 3. Start the development server with `ng serve`.
 4. Open your browser and navigate to `http://localhost:4200/`.
+
+## Screenshots
+
+![Screenshot of easy password](/src/assets/screen_easy.png)
+![Screenshot of medium password](/src/assets/screen_medium.png)
+![Screenshot of strong password](/src/assets/screen_strong.png)
 
 ## Additional Resources
 
