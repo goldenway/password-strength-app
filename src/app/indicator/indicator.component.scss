@@ -1,0 +1,30 @@
+.strength-indicator {
+  display: flex;
+  margin-top: 10px;
+}
+
+.strength-indicator div {
+  width: 30px;
+  height: 10px;
+  margin-right: 5px;
+}
+
+.default {
+  background-color: lightgray;
+}
+
+.short {
+  background-color: red;
+}
+
+.easy {
+  background-color: red;
+}
+
+.medium {
+  background-color: yellow;
+}
+
+.strong {
+  background-color: green;
+}

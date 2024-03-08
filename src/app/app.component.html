@@ -3,25 +3,4 @@
   <input type="password" id="password" (input)="checkPasswordStrength($event)">
 </div>
 
-<div class="strength-indicator">
-  <div [ngClass]="{
-    'default': passwordStrength === 'empty',
-    'short': passwordStrength === 'short',
-    'easy': passwordStrength === 'easy',
-    'medium': passwordStrength === 'medium',
-    'strong': passwordStrength === 'strong'
-  }"></div>
-
-  <div [ngClass]="{
-    'default': passwordStrength === 'empty' || passwordStrength === 'easy',
-    'short': passwordStrength === 'short',
-    'medium': passwordStrength === 'medium',
-    'strong': passwordStrength === 'strong'
-  }"></div>
-
-  <div [ngClass]="{
-    'default': passwordStrength === 'empty' || passwordStrength === 'easy' || passwordStrength === 'medium',
-    'short': passwordStrength === 'short',
-    'strong': passwordStrength === 'strong'
-  }"></div>
-</div>
+<app-indicator></app-indicator>

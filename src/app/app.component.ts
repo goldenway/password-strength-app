@@ -1,41 +1,27 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 
-const MIN_LENGTH = 8;
+import { IndicatorComponent } from './indicator/indicator.component';
+import { StrengthService } from './shared/strength.service';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
-    CommonModule,
-    RouterOutlet
+    RouterOutlet,
+    IndicatorComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  passwordStrength: string = '';
+  constructor(
+    private strengthService: StrengthService
+  ) {}
 
   checkPasswordStrength(event: any): void {
     const password = (event.target as HTMLInputElement).value;
 
-    if (!password || password.length === 0) {
-      this.passwordStrength = 'empty';
-      return;
-    }
-    
-    if (password.length < MIN_LENGTH) {
-      this.passwordStrength = 'short';
-      return;
-    }
-    
-    if (/^[a-zA-Z]+$|^\d+$|^[!@#$%^&*(),.?":{}|<>]+$/.test(password)) {
-      this.passwordStrength = 'easy';
-    } else if (/[a-zA-Z]/.test(password) && /\d/.test(password) && /[!@#$%^&*(),.?":{}|<>]/.test(password)) {
-      this.passwordStrength = 'strong';
-    } else {
-      this.passwordStrength = 'medium';
-    }
+    this.strengthService.calculatePasswordStrength(password);
   }
 }
