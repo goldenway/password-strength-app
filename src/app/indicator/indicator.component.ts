@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { Subscription } from 'rxjs';
 
-import { StrengthService } from '../shared/strength.service';
+import { PasswordService } from '../password/password.service';
 
 @Component({
   selector: 'app-indicator',
@@ -19,11 +19,11 @@ export class IndicatorComponent implements OnInit, OnDestroy {
   subscription: Subscription
 
   constructor(
-    private strengthService: StrengthService
+    private passwordService: PasswordService
   ) {}
 
   ngOnInit(): void {
-    this.subscription = this.strengthService.passwordChanged.subscribe(strength => {
+    this.subscription = this.passwordService.passwordChanged.subscribe(strength => {
       this.passwordStrength = strength;
     });
   }

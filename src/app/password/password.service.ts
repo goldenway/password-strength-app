@@ -7,7 +7,7 @@ const MIN_LENGTH = 8;
 @Injectable({
   providedIn: 'root'
 })
-export class StrengthService {
+export class PasswordService {
   passwordChanged: Subject<string> = new Subject<string>;
 
   checkPasswordStrength(password: string) {

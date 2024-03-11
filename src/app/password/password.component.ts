@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { Subscription } from 'rxjs';
 
 import { IndicatorComponent } from '../indicator/indicator.component';
-import { StrengthService } from '../shared/strength.service';
+import { PasswordService } from './password.service';
 
 @Component({
   selector: 'app-password',
@@ -22,7 +22,7 @@ export class PasswordComponent implements OnInit, OnDestroy {
 
   constructor(
     private fb: FormBuilder,
-    private strengthService: StrengthService
+    private passwordService: PasswordService
   ) {}
 
   ngOnInit(): void {
@@ -31,7 +31,7 @@ export class PasswordComponent implements OnInit, OnDestroy {
     });
 
     this.subscription = this.passwordForm.get('password')?.valueChanges.subscribe(value => {
-      this.strengthService.checkPasswordStrength(value);
+      this.passwordService.checkPasswordStrength(value);
     });
   }
 
