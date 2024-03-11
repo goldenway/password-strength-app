@@ -1,5 +1,7 @@
-import { Component, DoCheck } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
+import { Subscription } from 'rxjs';
 
 import { StrengthService } from '../shared/strength.service';
 
@@ -12,14 +14,21 @@ import { StrengthService } from '../shared/strength.service';
   templateUrl: './indicator.component.html',
   styleUrl: './indicator.component.scss'
 })
-export class IndicatorComponent implements DoCheck {
+export class IndicatorComponent implements OnInit, OnDestroy {
   passwordStrength: string = '';
+  subscription: Subscription
 
   constructor(
     private strengthService: StrengthService
   ) {}
 
-  ngDoCheck(): void {
-    this.passwordStrength = this.strengthService.getPasswordStrength();
+  ngOnInit(): void {
+    this.subscription = this.strengthService.passwordChanged.subscribe(strength => {
+      this.passwordStrength = strength;
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 }

@@ -1,34 +1,32 @@
 import { Injectable } from '@angular/core';
 
+import { Subject } from 'rxjs';
+
 const MIN_LENGTH = 8;
 
 @Injectable({
   providedIn: 'root'
 })
 export class StrengthService {
-  passwordStrength: string = '';
+  passwordChanged: Subject<string> = new Subject<string>;
 
-  calculatePasswordStrength(password: string) {
+  checkPasswordStrength(password: string) {
     if (!password || password.length === 0) {
-      this.passwordStrength = 'empty';
+      this.passwordChanged.next('empty');
       return;
     }
     
     if (password.length < MIN_LENGTH) {
-      this.passwordStrength = 'short';
+      this.passwordChanged.next('short');
       return;
     }
     
     if (/^[a-zA-Z]+$|^\d+$|^[!@#$%^&*(),.?":{}|<>]+$/.test(password)) {
-      this.passwordStrength = 'easy';
+      this.passwordChanged.next('easy');
     } else if (/[a-zA-Z]/.test(password) && /\d/.test(password) && /[!@#$%^&*(),.?":{}|<>]/.test(password)) {
-      this.passwordStrength = 'strong';
+      this.passwordChanged.next('strong');
     } else {
-      this.passwordStrength = 'medium';
+      this.passwordChanged.next('medium');
     }
-  }
-
-  getPasswordStrength():string {
-    return this.passwordStrength;
   }
 }
